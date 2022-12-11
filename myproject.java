@@ -7,12 +7,14 @@ public class myproject {
    private final String name;
    private ImageIcon image;
 
-   public myproject(int no, int value, String kind, String name ){
+
+   public myproject(int no, int value, String kind, String name ,ImageIcon imageIcon){
       this.no=no;
       this.value=value;
       this.kind = kind;
       this.name=name;
       this.image=image;
+
    }
    public int getNo(){
       return this.no;
@@ -29,7 +31,5 @@ public class myproject {
    public ImageIcon getimage(){
       return this.image;
    }
-
-
 
 }
