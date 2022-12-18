@@ -1,20 +1,35 @@
-import javax.swing.*;
 
-public class Main{
 
+public class Main {
     public static void main(String[] args) {
-        deck d1 = new deck();
-        d1.shuffle();
-        for (int d=0; d<52;d++){
-            JOptionPane.showMessageDialog(null,
-                    d1.showcard(d1.getNumberofcards()-1).toString(),
-                    "card",
-                    JOptionPane.PLAIN_MESSAGE,
-                    d1.givecard().getimage());
+        deck deck = new deck();
 
+
+        deck.shuffle();
+
+
+        System.out.println("Shuffled deck:");
+        for (String card : deck.getCards()) {
+            System.out.println(card);
         }
 
 
-    }
+        deck.cut();
 
+
+        System.out.println("\nCut deck:");
+        for (String card : deck.getCards()) {
+            System.out.println(card);
+        }
+
+
+        String[][] hands = deck.dealCards();
+        System.out.println("\nHands:");
+        for (String[] hand : hands) {
+            for (String card : hand) {
+                System.out.println(card);
+            }
+            System.out.println();
+        }
+    }
 }
