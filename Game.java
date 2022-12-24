@@ -4,6 +4,7 @@ public class Game {
     private String[] board;
     private deck deck;
 
+
     public Game(deck deck) {
         this.deck = deck;
         this.hands = new String[2][4];

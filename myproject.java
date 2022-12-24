@@ -1,31 +1,21 @@
-import javax.swing.*;
-
 public class myproject {
-   private final int no;
-   private final int value;
-   private final String kind;
-   private final String name;
+   private String rank;
+   private String suit;
 
-
-   public myproject(int no, int value, String kind, String name ){
-      this.no=no;
-      this.value=value;
-      this.kind = kind;
-      this.name=name;
-
-
-   }
-   public int getNo(){
-      return this.no;
-   }
-   public int getValue(){
-      return this.value;
-   }
-   public String getKind(){
-      return this.kind;
-   }
-   public String getName(){
-      return this.name;
+   public myproject(String rank, String suit) {
+      this.rank = rank;
+      this.suit = suit;
    }
 
+   public String getRank() {
+      return rank;
+   }
+
+   public String getSuit() {
+      return suit;
+   }
+
+   public String toString() {
+      return rank + " of " + suit;
+   }
 }
