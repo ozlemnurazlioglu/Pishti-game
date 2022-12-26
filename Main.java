@@ -1,31 +1,27 @@
+import Player.Game;
+import Player.Player;
+import Player.deck;
 
-
-import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-
-
-
-        deck deck = new deck();
+        deck deck = new deck();  // Change the name of the variable or the type
         Game game = new Game(deck);
         game.playGame();
 
 
+
+
         deck.shuffle();
 
-
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player = new Player();
+        Player computer = new Player();
 
         // Deal cards to players
         for (int i = 0; i < 4; i++) {
-            player1.addCard(deck.dealCard(), i);
-            player2.addCard(deck.dealCard(), i);
+            player.addCard(deck.dealCard(), i);
+            computer.addCard(deck.dealCard(), i);
         }
 
-        // Calculate player scores
-        int player1Score = player1.calculateScore();
-        int player2Score = player2.calculateScore();
 
 
         System.out.println("Shuffled deck:");
@@ -33,15 +29,12 @@ public class Main {
             System.out.println(card);
         }
 
-
         deck.cut();
-
 
         System.out.println("\nCut deck:");
         for (String card : deck.getCards()) {
             System.out.println(card);
         }
-
 
         String[][] hands = deck.dealCards();
         System.out.println("\nHands:");

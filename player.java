@@ -1,42 +1,56 @@
 public class Player {
-    private myproject[] hand;
+    private String[] hand;
     private int score;
-
-    public  void player() {
-        hand = new myproject[4];
+    public Player() {
+        hand = new String[4];
         score = 0;
     }
 
-    public void addCard(myproject card, int index) {
+    public void addCard(String card, int index) {
         hand[index] = card;
     }
 
-    public int calculateScore() {
-        for (myproject card : hand) {
-            if (card.getRank().equals("Ace")) {
-                score += 1;
-            } else if (card.getRank().equals("2")) {
-                score += 2;
-            } else if (card.getRank().equals("Tile 10")) {
+    public void addCards(String[] cards) {
+        for (String card : cards) {
+            if (card.equals("♦10")) {
                 score += 3;
-            } else if (card.getRank().equals("Jack")) {
-                score += 1;
-            } else if (card.getRank().equals("Queen")) {
+            } else if (card.equals("♣2")) {
                 score += 2;
-            } else if (card.getRank().equals("King")) {
-                score += 3;
+            } else {
+                score += 1;
             }
         }
+    }
+
+    public void addScore(int points) {
+        score += points;
+    }
+
+    public int getNumCards() {
+        int count = 0;
+        for (String card : hand) {
+            if (card != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean hasCards() {
+        return getNumCards() > 0;
+    }
+
+    public String playCard(int index) {
+        String card = hand[1];
+        hand[index] = null;
+        return card;
+    }
+
+    public String[] getHand() {
+        return hand;
+    }
+
+    public int getScore() {
         return score;
     }
-
-    public void printHand() {
-        for (myproject card : hand) {
-            System.out.println(card.toString());
-        }
-    }
-
-    public void addCard(Player.myproject dealCard, int i) {
-    }
 }
-
